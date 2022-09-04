@@ -1,5 +1,7 @@
 `timescale 1ns / 1ps
 
+//adder without carry in
+
 module halfadder(
     input A,
     input B,
@@ -7,7 +9,7 @@ module halfadder(
     output Cout
     );
     
-    assign S = A ^ B;
-    assign Cout = A & B;
+    assign S = A ^ B; //LSB logic for adder
+    assign Cout = A & B; //Carry Out Bit
     
 endmodule

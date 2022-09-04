@@ -1,5 +1,7 @@
 `timescale 1ns / 1ps
 
+//2bit subtractor
+
 module twobitadderr(
     input [1:0] A,
     input [1:0] B,
