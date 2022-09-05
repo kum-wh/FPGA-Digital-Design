@@ -1,5 +1,7 @@
 `timescale 1ns / 1ps
 
+//clock divider for POV
+
 module segclock2(input clock, start, output reg led );
     reg [17:0]COUNT = 18'b0;
     
