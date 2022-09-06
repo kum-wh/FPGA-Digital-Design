@@ -1,10 +1,16 @@
 `timescale 1ns / 1ps
+
 //B for bg
 //C colour for frame
 //D,E,F colour for bars
+//stores the different colour combitation for different parts of the soundbar
+
 module colourselecter(input clock, [1:0] A, output reg [15:0] B, reg [15:0] C, reg [15:0] D, reg [15:0] E, reg [15:0] F);
+
     always @ (posedge clock) begin
+
         case(A)
+
             2'b00: 
                 begin
                    B <= 16'b0000000000000000;
@@ -37,6 +43,7 @@ module colourselecter(input clock, [1:0] A, output reg [15:0] B, reg [15:0] C, r
                     E <= 16'b1111101111100000;
                     F <= 16'b0000000000011111;
                 end
+
         endcase
     end
     

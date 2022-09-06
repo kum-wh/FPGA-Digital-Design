@@ -1,12 +1,20 @@
 `timescale 1ns / 1ps
+
 //colour for bg
 //B colour for frame
 //C,D,E colour for bars
+//displays a soundbar with a certain settings
+
 module soundbar(input clock, [1:0] R, [15:0] tester, [12:0] index, output reg [15:0] data );
+
     wire [15:0] A; wire [15:0] B; wire [15:0] C; wire [15:0] D; wire [15:0] E;
+    
     colourselecter fa0(clock, R, A, B, C, D, E);
+    
     always @ (posedge clock) begin
+        
         case(tester)
+            
             16'b0000000000000000:data<=A;
             16'b0000000000000001:data<=(index/96<61)?A:((index%96>=32)?((index%96<=63)?C:A):A);
             16'b0000000000000011:data<=(index/96<57)?A:(index/96==60)?A:((index%96>=32)?((index%96<=63)?C:A):A);
@@ -24,7 +32,8 @@ module soundbar(input clock, [1:0] R, [15:0] tester, [12:0] index, output reg [1
             16'b0011111111111111:data<=(index/96<9)?A:(index/96==12)?A:(index/96==16)?A:(index/96==20)?A:(index/96==24)?A:(index/96==28)?A:(index/96==32)?A:(index/96==36)?A:(index/96==40)?A:(index/96==44)?A:(index/96==48)?A:(index/96==52)?A:(index/96==56)?A:(index/96==60)?A:(index%96<32)?A:(index%96>63)?A:(index/96<21)?E:(index/96<41)?D:C;
             16'b0111111111111111:data<=(index/96<5)?A:(index/96==8)?A:(index/96==12)?A:(index/96==16)?A:(index/96==20)?A:(index/96==24)?A:(index/96==28)?A:(index/96==32)?A:(index/96==36)?A:(index/96==40)?A:(index/96==44)?A:(index/96==48)?A:(index/96==52)?A:(index/96==56)?A:(index/96==60)?A:(index%96<32)?A:(index%96>63)?A:(index/96<21)?E:(index/96<41)?D:C;
             16'b1111111111111111:data<=(index/96==4)?A:(index/96==8)?A:(index/96==12)?A:(index/96==16)?A:(index/96==20)?A:(index/96==24)?A:(index/96==28)?A:(index/96==32)?A:(index/96==36)?A:(index/96==40)?A:(index/96==44)?A:(index/96==48)?A:(index/96==52)?A:(index/96==56)?A:(index/96==60)?A:(index%96<32)?A:(index%96>63)?A:(index/96<21)?E:(index/96<41)?D:C;
-    endcase        
+        
+        endcase        
     end
 
 endmodule

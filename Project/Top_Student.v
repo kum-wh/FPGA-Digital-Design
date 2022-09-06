@@ -11,8 +11,10 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 
+//handles the integration of the sound module and the display module 
 
 module Top_Student(input CLOCK, btnC, btnU, btnR, btnL, btnD, [15:0] sw, 
+    
     output [6:0] JC,
     input  J_MIC3_Pin3,   // Connect from this signal to Audio_Capture.v
     output J_MIC3_Pin1,   // Connect to this signal from Audio_Capture.v
@@ -22,6 +24,8 @@ module Top_Student(input CLOCK, btnC, btnU, btnR, btnL, btnD, [15:0] sw,
     output [7:0]seg);
     wire [15:0]tester;
     wire [11:0]sample;
+    
     top_audio a1(CLOCK, sw , J_MIC3_Pin3, J_MIC3_Pin1, J_MIC3_Pin4, led, tester, an, seg, sample);
     Display fa0(CLOCK, sample, tester, btnC, btnU, btnR, btnL, btnD, sw, JC);
+
 endmodule

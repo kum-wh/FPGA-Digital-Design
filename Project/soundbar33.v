@@ -1,11 +1,17 @@
 `timescale 1ns / 1ps
 
+//displays a soundbar with a certain settings
+
 module soundbar33(input clock, [1:0] R, [15:0] tester, [12:0] index, output reg [15:0] data );
+    
     wire [15:0] A; wire [15:0] B; wire [15:0] C; wire [15:0] D; wire [15:0] E;
+    
     colourselecter fa0(clock, R, A, B, C, D, E);
     
     always @ (posedge clock) begin
+    
         case(tester)
+    
             16'b0000000000000000:data<=(index <= 13'b0000100011111)?B:(index >= 13'b1011011100000)?B:(index % 96 == 0)?B:(index % 96 == 1)?B:(index % 96 == 2)?B:(index % 96 == 93)?B:(index % 96 == 94)?B:(index % 96 == 95)?B:A;
             16'b0000000000000001:data<=(index <= 13'b0000100011111)?B:(index >= 13'b1011011100000)?B:(index % 96 == 0)?B:(index % 96 == 1)?B:(index % 96 == 2)?B:(index % 96 == 93)?B:(index % 96 == 94)?B:(index % 96 == 95)?B:(index/96<59)?A:((index%96>=64)?((index%96<=95)?C:A):A);
             16'b0000000000000011:data<=(index <= 13'b0000100011111)?B:(index >= 13'b1011011100000)?B:(index % 96 == 0)?B:(index % 96 == 1)?B:(index % 96 == 2)?B:(index % 96 == 93)?B:(index % 96 == 94)?B:(index % 96 == 95)?B:(index/96<56)?A:(index/96==58)?A:((index%96>=64)?((index%96<=95)?C:A):A);
@@ -23,6 +29,8 @@ module soundbar33(input clock, [1:0] R, [15:0] tester, [12:0] index, output reg 
             16'b0011111111111111:data<=(index <= 13'b0000100011111)?B:(index >= 13'b1011011100000)?B:(index % 96 == 0)?B:(index % 96 == 1)?B:(index % 96 == 2)?B:(index % 96 == 93)?B:(index % 96 == 94)?B:(index % 96 == 95)?B:(index/96<20)?A:(index/96==22)?A:(index/96==25)?A:(index/96==28)?A:(index/96==31)?A:(index/96==34)?A:(index/96==37)?A:(index/96==40)?A:(index/96==43)?A:(index/96==46)?A:(index/96==49)?A:(index/96==52)?A:(index/96==55)?A:(index/96==58)?A:(index%96<64)?A:(index/96<29)?E:(index/96<44)?D:C;
             16'b0111111111111111:data<=(index <= 13'b0000100011111)?B:(index >= 13'b1011011100000)?B:(index % 96 == 0)?B:(index % 96 == 1)?B:(index % 96 == 2)?B:(index % 96 == 93)?B:(index % 96 == 94)?B:(index % 96 == 95)?B:(index/96<17)?A:(index/96==19)?A:(index/96==22)?A:(index/96==25)?A:(index/96==28)?A:(index/96==31)?A:(index/96==34)?A:(index/96==37)?A:(index/96==40)?A:(index/96==43)?A:(index/96==46)?A:(index/96==49)?A:(index/96==52)?A:(index/96==55)?A:(index/96==58)?A:(index%96<64)?A:(index/96<29)?E:(index/96<44)?D:C;
             16'b1111111111111111:data<=(index <= 13'b0000100011111)?B:(index >= 13'b1011011100000)?B:(index % 96 == 0)?B:(index % 96 == 1)?B:(index % 96 == 2)?B:(index % 96 == 93)?B:(index % 96 == 94)?B:(index % 96 == 95)?B:(index/96<14)?A:(index/96==16)?A:(index/96==19)?A:(index/96==22)?A:(index/96==25)?A:(index/96==28)?A:(index/96==31)?A:(index/96==34)?A:(index/96==37)?A:(index/96==40)?A:(index/96==46)?A:(index/96==46)?A:(index/96==49)?A:(index/96==52)?A:(index/96==55)?A:(index/96==58)?A:(index%96<64)?A:(index/96<29)?E:(index/96<44)?D:C;
-    endcase        
+        
+        endcase        
     end
+
 endmodule

@@ -1,9 +1,15 @@
 `timescale 1ns / 1ps
-//as the name says, does the welcome screen
+
+//displays a welcome screen
+
 module Welcome(input clock, [12:0] index, output reg [15:0] data );
+    
     wire [15:0] A;
+    
     colourtimer fa0(clock, A);
+    
     always @ (posedge clock) begin
+
         data<=(index/96==18)?((index%96==9)?A:(index%96==10)?A:(index%96==15)?A:(index%96==16)?A:(index%96==21)?A:(index%96==22)?A:(index%96==26)?A:(index%96==27)?A:(index%96==28)?A:(index%96==29)?A:(index%96==30)?A:(index%96==31)?A:(index%96==34)?A:(index%96==35)?A:(index%96==45)?A:(index%96==46)?A:(index%96==54)?A:(index%96==55)?A:(index%96==56)?A:(index%96==63)?A:(index%96==64)?A:(index%96==73)?A:(index%96==74)?A:(index%96==77)?A:(index%96==78)?A:(index%96==79)?A:(index%96==80)?A:(index%96==81)?A:(index%96==82)?A:(index%96==83)?A:0):
               (index/96==19)?((index%96==9)?A:(index%96==10)?A:(index%96==15)?A:(index%96==16)?A:(index%96==21)?A:(index%96==22)?A:(index%96==26)?A:(index%96==27)?A:(index%96==28)?A:(index%96==29)?A:(index%96==30)?A:(index%96==31)?A:(index%96==34)?A:(index%96==35)?A:(index%96==44)?A:(index%96==45)?A:(index%96==46)?A:(index%96==47)?A:(index%96==54)?A:(index%96==55)?A:(index%96==56)?A:(index%96==63)?A:(index%96==64)?A:(index%96==65)?A:(index%96==72)?A:(index%96==73)?A:(index%96==74)?A:(index%96==77)?A:(index%96==78)?A:(index%96==79)?A:(index%96==80)?A:(index%96==81)?A:(index%96==82)?A:(index%96==83)?A:0):
               (index/96==20)?((index%96==9)?A:(index%96==10)?A:(index%96==15)?A:(index%96==16)?A:(index%96==21)?A:(index%96==22)?A:(index%96==26)?A:(index%96==27)?A:(index%96==28)?A:(index%96==29)?A:(index%96==30)?A:(index%96==31)?A:(index%96==34)?A:(index%96==35)?A:(index%96==43)?A:(index%96==44)?A:(index%96==45)?A:(index%96==46)?A:(index%96==47)?A:(index%96==48)?A:(index%96==53)?A:(index%96==54)?A:(index%96==55)?A:(index%96==56)?A:(index%96==57)?A:(index%96==63)?A:(index%96==64)?A:(index%96==65)?A:(index%96==72)?A:(index%96==73)?A:(index%96==74)?A:(index%96==77)?A:(index%96==78)?A:(index%96==79)?A:(index%96==80)?A:(index%96==81)?A:(index%96==82)?A:(index%96==83)?A:0):
@@ -41,4 +47,5 @@ module Welcome(input clock, [12:0] index, output reg [15:0] data );
               (index/96==52)?((index%96==12)?A:(index%96==13)?A:(index%96==18)?A:(index%96==19)?A:(index%96==26)?A:(index%96==27)?A:(index%96==28)?A:(index%96==29)?A:(index%96==30)?A:(index%96==31)?A:(index%96==34)?A:(index%96==35)?A:(index%96==36)?A:(index%96==37)?A:(index%96==38)?A:(index%96==39)?A:(index%6==43)?A:(index%96==44)?A:(index%96==45)?A:(index%96==46)?A:(index%96==47)?A:(index%96==48)?A:(index%96==53)?A:(index%96==54)?A:(index%96==55)?A:(index%96==56)?A:(index%96==57)?A:(index%96==63)?A:(index%96==64)?A:(index%96==68)?A:(index%96==69)?A:(index%96==73)?A:(index%96==74)?A:(index%96==77)?A:(index%96==78)?A:(index%96==79)?A:(index%96==80)?A:(index%96==81)?A:(index%96==82)?A:(index%96==83)?A:0):
               (index/96==53)?((index%96==12)?A:(index%96==13)?A:(index%96==18)?A:(index%96==19)?A:(index%96==26)?A:(index%96==27)?A:(index%96==28)?A:(index%96==29)?A:(index%96==30)?A:(index%96==31)?A:(index%96==34)?A:(index%96==35)?A:(index%96==36)?A:(index%96==37)?A:(index%96==38)?A:(index%96==39)?A:(index%96==44)?A:(index%96==45)?A:(index%96==46)?A:(index%96==47)?A:(index%96==54)?A:(index%96==55)?A:(index%96==56)?A:(index%96==63)?A:(index%96==64)?A:(index%96==68)?A:(index%96==69)?A:(index%96==73)?A:(index%96==74)?A:(index%96==77)?A:(index%96==78)?A:(index%96==79)?A:(index%96==80)?A:(index%96==81)?A:(index%96==82)?A:(index%96==83)?A:0):0;
     end
+    
 endmodule
