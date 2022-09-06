@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-//
+//timer for 10.74s for cooldown period that can be reset
 
 module tensec(input clock, start, resett, output led);
     

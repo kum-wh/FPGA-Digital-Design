@@ -1,5 +1,7 @@
 `timescale 1ns / 1ps
 
+//standard logic combination to create a single pusle output
+
 module reset(input clock, btn, output index );
     
     wire C1; wire C2; wire C3;

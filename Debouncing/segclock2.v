@@ -3,6 +3,7 @@
 //clock divider for POV
 
 module segclock2(input clock, start, output reg led );
+    
     reg [17:0]COUNT = 18'b0;
     
     always @ (posedge clock) begin

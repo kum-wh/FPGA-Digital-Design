@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-//
+//handles the cathode output for 7-segment
 
 module seg3(input start, clock, btnL, btnC, btnR, btnU, stop, output t4, t5, t6, t7, t8, reg [6:0]seg );
 
@@ -16,18 +16,21 @@ module seg3(input start, clock, btnL, btnC, btnR, btnU, stop, output t4, t5, t6,
    timer ck2(clock, start, trigger2, B, A);
    reset fa0(clock, btnU, B);
    seg2 fa1(clock, trigger, A, B, fail, S0);
+
+   //handles the display of each room
    seg1 fa2(start, stop, clock, btnR, B, C2, C3, x1, t1, S1, C1);
    seg1 fa3(start, stop, clock, btnC, B, C1, C3, x2, t2, S2, C2);
    seg1 fa4(start, stop, clock, btnL, B, C1, C2, x3, t3, S3, C3);
 
-   assign trigger = t1 | t2 | t3;
-   assign trigger2 = x1 & x2 & x3;
+   assign trigger = t1 | t2 | t3; //indicate a error in one of the rooms
+   assign trigger2 = x1 & x2 & x3; //indicate success when all room are full
    assign t4 = t1;
    assign t5 = t2;
    assign t6 = t3;
    assign t7 = fail;
    assign t8 = B;
    
+   //toggle the 7-seg to display FAIL if failed
    always @ (posedge C) begin
       
       COUNT <= COUNT + 1;

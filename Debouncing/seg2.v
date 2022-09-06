@@ -1,8 +1,9 @@
 `timescale 1ns / 1ps
 
-//
+//handles the number of chances given
 
 module seg2(input clock, trigger, A, reset, output reg fail = 0, reg [6:0] seg );
+        
         wire C;
         reg index = 0;
         reg [3:0] COUNT = 4'b0;

@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-//
+//clock divider for blinking at 1.49Hz when a rules is broken
 
 module blinkclock(input clock, output reg led );
 

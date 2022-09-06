@@ -1,5 +1,7 @@
 `timescale 1ns / 1ps
 
+//handle the combination of the module for subB
+
 module subB(input start, clock, btnL, btnC, btnR, btnU, output [6:0]seg, reg [3:0]an);
     
     wire A; wire [2:0]B; wire C;
@@ -9,13 +11,17 @@ module subB(input start, clock, btnL, btnC, btnR, btnU, output [6:0]seg, reg [3:
 
     clock3 ck(clock, C);
     blinkclock ck2(clock, A);
+    
+    //handles the logic for each room
     tensec ten1(clock, t1, t4, B[0]);
     tensec ten2(clock, t2, t4, B[1]);
     tensec ten3(clock, t3, t4, B[2]);
+
     seg3 fa0(start, clock, btnL, btnC, btnR, btnU, stop, t1, t2, t3, fail, t4, seg);
 
     assign stop = B[0] | B[1] | B[2];
 
+    //mux the anode to the blinking clock to blink the respective segment
     always @ (posedge C) begin
         
         COUNT <= COUNT + 1;

@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-//
+//clock divider for debouncing
 
 module debounceclock(input clock, output reg led = 0 );
 

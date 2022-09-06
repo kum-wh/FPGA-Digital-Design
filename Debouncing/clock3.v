@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-//
+//clock divider used in subB for POV
 
 module clock3(input clock, output reg led);
     

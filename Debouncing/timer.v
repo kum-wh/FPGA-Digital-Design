@@ -1,8 +1,9 @@
 `timescale 1ns / 1ps
 
-//
+//timer for 3s by counting 9 time of 0.336s
 
 module timer(input clock, start, stop, reset, output out );
+    
     wire C;
     reg [3:0] COUNT = 4'b0;
 

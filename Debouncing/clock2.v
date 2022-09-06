@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-//
+//clock divider for 0.336s used for timer for 3s
 
 module clock2(input clock, start, output reg led = 0);
     

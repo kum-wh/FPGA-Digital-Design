@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-//
+//check if 3 room are within 1 person of each other
 
 module rules(input clock, [2:0]C1, [2:0]C2, [2:0]C3, output reg trigger = 0 );
    

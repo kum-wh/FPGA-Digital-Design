@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-//
+//handles the top layer muxing of output from subA and subB 
 
 module assignment4(input CLOCK, btnL, btnC, btnR, btnU, [3:0]sw, output [15:0]led, [6:0]seg, [3:0]an );
 
